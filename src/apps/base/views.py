@@ -8,5 +8,5 @@ logger = logging.getLogger(__name__)
 
 
 def test(request: WSGIRequest) -> HttpResponse:
-    logger.debug('TEST VIEW')
+    logger.debug('!!! TEST VIEW !!!')
     return render(request, 'test.html', {})
