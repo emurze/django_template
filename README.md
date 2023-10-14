@@ -43,10 +43,10 @@ Create logs dir and general.log file
 
 ```mkdir src/logs && > src/logs/general.log ```
 
-Run dev project
+Run dev server
 
 ```docker compose up --build```
 
-Run prod project
+Run prod server
 
 ```docker compose -f docker-compose.prod.yml up --build```
