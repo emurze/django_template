@@ -1,5 +1,11 @@
 # PROJECT TEMPLATE
 
-mkdir src/logs && > src/logs/general.log 
+# How run project?
 
-docker compose up --build
+Create logs dir and general.log file
+
+```mkdir src/logs && > src/logs/general.log ```
+
+Run project
+
+```docker compose up --build```
