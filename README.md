@@ -6,7 +6,7 @@ Fill /env/.db.env and /env/.online_shop.env
 
 For example: 
 
-*./env/.online_shop.env*
+*/env/.online_shop.env*
 
 ```
 # APP
@@ -22,7 +22,7 @@ DB_HOST=db
 DB_POST=5432
 ```
 
-*./env/.db.env*
+*/env/.db.env*
 ```
 # POSTGRES
 POSTGRES_DB=optimization_app
