@@ -2,7 +2,7 @@
 
 # How run project?
 
-Fill ./env/.db.env and ./env/.online_shop.env
+Fill /env/.db.env and /env/.online_shop.env
 
 For example: 
 
