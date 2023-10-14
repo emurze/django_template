@@ -4,11 +4,9 @@
 
 Create /env/.db.env and /env/.online_shop.env
 
-IF you are at the top of project
-
 ```mkdir env && > env/.db.env && > env/.online_shop.env```
 
-Fill env/.db.env and env/.online_shop.env
+**Fill** env/.db.env and env/.online_shop.env
 
 For example: 
 
