@@ -10,10 +10,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
-  online_shop:
+  project_name:
     build: .
-    container_name: 'online_shop'
-    image: 'online_shop:1'
+    container_name: 'project_name'
+    image: 'project_name:1'
     command: >
       sh -c 'cd src &&
              poetry run python3 manage.py migrate --no-input &&
@@ -45,7 +45,7 @@ services:
       - '80:80'
     restart: unless-stopped
     depends_on:
-      - online_shop
+      - project_name
 
 networks:
   backend:
