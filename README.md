@@ -1,5 +1,5 @@
 # PROJECT TEMPLATE
 
-> mkdir src/logs && > src/logs/general.log 
+mkdir src/logs && > src/logs/general.log 
 
-> docker compose up --build
+docker compose up --build
