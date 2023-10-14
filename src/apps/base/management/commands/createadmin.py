@@ -1,27 +1,21 @@
 import logging
 
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.core.management import BaseCommand
 
 User = get_user_model()
-logger = logging.getLogger(__name__)
+lg = logging.getLogger(__name__)
 
 
 class Command(BaseCommand):
-    help = 'This command create superuser'
+    help = 'This command creates superuser'
 
-    def add_arguments(self, parser) -> None:
-        parser.add_argument("--username")
-        parser.add_argument("--email")
-        parser.add_argument("--password")
-
-    def handle(self, *_, **options) -> None:
+    def handle(self, *_, **__) -> None:
         if not User.objects.exists():
             user = User.objects.create_superuser(
-                username=options.get('username'),
-                email=options.get('email'),
-                password=options.get('password')
+                username=settings.DEFAULT_ADMIN_NAME,
+                email=settings.DEFAULT_ADMIN_EMAIL,
+                password=settings.DEFAULT_ADMIN_PASSWORD,
             )
-            logger.debug(f'Admin {user.username} was created.')
-        else:
-            logger.debug('Admin is already exists.')
+            lg.debug(f'Admin {user.username} was created.')

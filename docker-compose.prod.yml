@@ -1,0 +1,56 @@
+version: "3.5"
+services:
+  db:
+    image: 'postgres:13'
+    container_name: 'db'
+    networks:
+      - backend
+    env_file: ./env/.db.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+
+  online_shop:
+    build: .
+    container_name: 'online_shop'
+    image: 'online_shop:1'
+    command: >
+      sh -c 'cd src &&
+             poetry run python3 manage.py migrate --no-input &&
+             poetry run python3 manage.py createadmin &&
+             poetry run python3 manage.py collectstatic --noinput &&
+             poetry run gunicorn config.wsgi:application --bind 0.0.0.0:8080 '
+    networks:
+      - backend
+    volumes:
+      - ./src:/service/src
+      - app_static:/service/src/static
+      - app_media:/service/src/media
+    env_file:
+      - ./env/.online_shop.env
+    restart: unless-stopped
+    depends_on:
+      - db
+
+  web_server:
+    image: 'nginx:alpine3.18'
+    container_name: 'web_server'
+    networks:
+      - backend
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/nginx.conf
+      - app_static:/srv/static
+      - app_media:/srv/media
+    ports:
+      - '80:80'
+    restart: unless-stopped
+    depends_on:
+      - online_shop
+
+networks:
+  backend:
+
+volumes:
+  postgres_data:
+  app_static:
+  app_media:

@@ -1,13 +1,13 @@
+import os
 from pathlib import Path
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-SECRET_KEY = 'django-insecure-&f!glrp*3kvjeye8q$78#%qwr9-8moxzkmm!6j8!01wc#-gjlr'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
-DEBUG = True
+DEBUG = bool(int(os.environ.get("DEBUG", default=0)))
 
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = ['mysite.com', '0.0.0.0', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,10 +17,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'apps.account.apps.AccountConfig',
     'apps.base.apps.BaseConfig',
-
-    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -35,6 +32,33 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'config.urls'
 
+APPS_DIR = BASE_DIR / 'apps'
+
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [
+    *APPS_DIR.rglob('*static'),
+]
+STATIC_ROOT = BASE_DIR / 'static'
+
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [*APPS_DIR.rglob('*templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
 WSGI_APPLICATION = 'config.wsgi.application'
 
 LANGUAGE_CODE = 'en-us'
@@ -45,17 +69,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = 'static/'
-STATICFILES_DIRS = [Path(BASE_DIR.parent, 'static')]
-
-MEDIA_URL = 'media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-if DEBUG:
-    import socket  # only if you haven't already imported this
-    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + \
-                   ["0.0.0.0", "127.0.0.1", "10.0.2.2"]
-    MIDDLEWARE.append('debug_toolbar.middleware.DebugToolbarMiddleware')
+DEFAULT_ADMIN_NAME = os.getenv('DEFAULT_ADMIN_NAME', 'adm1')
+
+DEFAULT_ADMIN_EMAIL = os.getenv('DEFAULT_ADMIN_EMAIL', 'adm1@adm1.com')
+
+DEFAULT_ADMIN_PASSWORD = os.getenv('DEFAULT_ADMIN_PASSWORD', 'adm1')
