@@ -10,6 +10,7 @@ python = "^3.11"
 django = "^4.2.6"
 psycopg2-binary = "^2.9.9"
 pillow = "^10.0.1"
+gunicorn = "^21.2.0"
 
 
 [build-system]
