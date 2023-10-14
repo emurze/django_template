@@ -4,7 +4,6 @@
 
 ```rm -rf .git```
 
-
 # How run project?
 
 Create /env/.db.env and /env/.online_shop.env
@@ -50,3 +49,7 @@ Run dev server
 Run prod server
 
 ```docker compose -f docker-compose.prod.yml up --build```
+
+# Create venv to future development
+
+```poetry run python -m venv venv```
