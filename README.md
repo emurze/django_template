@@ -1,5 +1,10 @@
 # PROJECT TEMPLATE
 
+# Remove traces
+
+```rm -rf .git```
+
+
 # How run project?
 
 Create /env/.db.env and /env/.online_shop.env
