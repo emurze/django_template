@@ -53,3 +53,5 @@ Run prod server
 # Create venv to future development
 
 ```poetry run python -m venv venv```
+
+```poetry install```
