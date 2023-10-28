@@ -64,6 +64,11 @@ DB_USER={project_name}
 DB_PASSWORD=12345678
 DB_HOST=db
 DB_POST=5432
+
+# ADMIN
+DEFAULT_ADMIN_NAME=adm1
+DEFAULT_ADMIN_EMAIL=adm1@adm1.com
+DEFAULT_ADMIN_PASSWORD=adm1
 ''' > "env/.${project_name}.env"
 
 sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
