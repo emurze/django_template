@@ -1,72 +1,18 @@
 # Django Template
 
-# How install template?
+# How install project?
 
 * ```git clone git@github.com:emurze/django_template.git```
-
   
 * ```mv django_template <project_name>```
 
-  
 * ```cd <project_name>```
 
+* ```chmod +x setup.sh```
 
-* ```rm -rf .git```
+* ```./setup.sh <project_name>```
 
-# How set up template?
-
-### Create venv
-
-```poetry init```
-
-```poetry config virtualenvs.path .```
-
-```poetry add django~=4.2.6 Pillow~=10.0.1 psycopg2-binary~=2.9.9 gunicorn~=21.2.0```
-
-```poetry install```
-
-### Create env
-
-```mkdir env && > env/.db.env && > env/.<project_name>.env```
-
-
-### Fill env | Example:
-
-*env/.<project_name>.env*
-
-```
-# APP
-SECRET_KEY=django-insecure-@l8=fm$s+-mjm-2i0)uoly9j+2pctx@+^k27(g$(bqw%i%jk-$
-DEBUG=1
-LOGGING_LEVEL=DEBUG
-
-# DB
-DB_NAME=optimization_app
-DB_USER=optimization_app
-DB_PASSWORD=12345678
-DB_HOST=db
-DB_POST=5432
-```
-
-*env/.db.env*
-```
-# POSTGRES
-POSTGRES_DB=optimization_app
-POSTGRES_USER=optimization_app
-POSTGRES_PASSWORD=12345678
-```
-
-### Fill all <project_name> in 
-
-* docker-compose.yml
-
-* docker-compose.dev.yml
-
-### Create log file
-
-```mkdir src/logs && > src/logs/general.log ```
-
-# How run template?
+# How run project?
 
 Run dev server
 
