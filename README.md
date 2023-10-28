@@ -6,15 +6,15 @@
 
 # How run project?
 
-Create /env/.db.env and /env/.online_shop.env
+Create /env/.db.env and /env/.<project_name>.env
 
-```mkdir env && > env/.db.env && > env/.online_shop.env```
+```mkdir env && > env/.db.env && > env/.<project_name>.env```
 
-Fill env/.db.env and env/.online_shop.env
+Fill env/.db.env and env/.<project_name>.env
 
 For example: 
 
-*env/.online_shop.env*
+*env/.<project_name>.env*
 
 ```
 # APP
@@ -52,6 +52,8 @@ Run prod server
 
 # Create venv to future development
 
-```poetry run python -m venv venv```
+```poety init```
+
+```poetry config virtualenvs.path .```
 
 ```poetry install```
