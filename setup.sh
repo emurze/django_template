@@ -29,7 +29,7 @@ sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
 
 poetry init
 
-poetry config virtualenvs.path .
+poetry config virtualenvs.in-project true
 
 poetry add django~=4.2.6 \
            Pillow~=10.0.1 \
