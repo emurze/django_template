@@ -63,7 +63,7 @@ Run prod server
 
 ```docker compose -f docker-compose.prod.yml up --build```
 
-# How create venv to future development?
+# How create venv?
 
 ```poety init```
 
