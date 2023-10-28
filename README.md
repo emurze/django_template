@@ -11,9 +11,7 @@
 * ```cd <project_name>```
 
 
-# Remove traces
-
-```rm -rf .git```
+* ```rm -rf .git```
 
 # How run project?
 
