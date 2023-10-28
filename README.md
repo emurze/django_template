@@ -4,7 +4,7 @@
 
 * ```git clone git@github.com:emurze/django_template.git```
   
-* ```mv django_template <project_name>```
+* ```mv django_template <project_name>/```
 
 * ```cd <project_name>```
 
