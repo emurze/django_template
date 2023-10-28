@@ -59,7 +59,7 @@ POSTGRES_USER=optimization_app
 POSTGRES_PASSWORD=12345678
 ```
 
-### Fill all project_names
+### Fill all <project_name>
 
 Change <project_name> in the docker-compose.yml and the docker-compose.dev.yml
 
