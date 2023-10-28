@@ -18,6 +18,8 @@ else
 fi
 
 
+sed -i "s/{project_name}/${project_name}/g" nginx/default.conf
+
 sed -i "s/{project_name}/${project_name}/g" docker-compose.yml
 
 sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
