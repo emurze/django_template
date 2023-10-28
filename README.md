@@ -6,6 +6,8 @@
 
 # How run project?
 
+**You must be in the root dir**
+
 Create /env/.db.env and /env/.<project_name>.env
 
 ```mkdir env && > env/.db.env && > env/.<project_name>.env```
