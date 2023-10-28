@@ -65,7 +65,7 @@ Create logs dir and general.log file <br>
 
 ```mkdir src/logs && > src/logs/general.log ```
 
-## How run template?
+# How run template?
 
 Run dev server
 
