@@ -21,6 +21,8 @@
 
 ```poetry config virtualenvs.path .```
 
+```poetry add django~=4.2.6 Pillow~=10.0.1 psycopg2-binary~=2.9.9 gunicorn~=21.2.0```
+
 ```poetry install```
 
 ### Create env
