@@ -27,13 +27,12 @@
 
 ### Create env
 
-Create /env/.db.env and /env/.<project_name>.env
-
 ```mkdir env && > env/.db.env && > env/.<project_name>.env```
 
-Fill env/.db.env and env/.<project_name>.env
 
-For example: 
+### Fill env
+
+**For example:** 
 
 *env/.<project_name>.env*
 
@@ -59,9 +58,11 @@ POSTGRES_USER=optimization_app
 POSTGRES_PASSWORD=12345678
 ```
 
-### Fill all <project_name>
+### Fill all <project_name> in 
 
-Fill all <project_name> in the docker-compose.yml and the docker-compose.dev.yml
+* docker-compose.yml
+
+* docker-compose.dev.yml
 
 ### Create log file
 
