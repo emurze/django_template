@@ -11,10 +11,7 @@
 * ```cd <project_name>```
 
 
-* ```chmod +x setup.sh```
-
-
-* ```./setup.sh <project_name>```
+* ```bash setup.sh <project_name>```
 
 # How run project?
 
