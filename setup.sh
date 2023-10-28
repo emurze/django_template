@@ -82,6 +82,19 @@ mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
 
+echo '''
+# Django Template
+
+# How run project?
+
+Run dev server
+
+```docker compose up --build```
+
+Run prod server
+
+```docker compose -f docker-compose.prod.yml up --build```
+''' > README.md
 
 # Remove traces
 
