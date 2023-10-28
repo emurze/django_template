@@ -15,7 +15,15 @@
 
 # How run project?
 
-***You must be in the root dir***
+### Create venv
+
+```poety init```
+
+```poetry config virtualenvs.path .```
+
+```poetry install```
+
+### Create env
 
 Create /env/.db.env and /env/.<project_name>.env
 
@@ -49,11 +57,15 @@ POSTGRES_USER=optimization_app
 POSTGRES_PASSWORD=12345678
 ```
 
+### Fill all project_names
+
 Change <project_name> in the docker-compose.yml and the docker-compose.dev.yml
 
-Create logs dir and general.log file
+Create logs dir and general.log file <br>
 
 ```mkdir src/logs && > src/logs/general.log ```
+
+### Run server
 
 Run dev server
 
@@ -62,11 +74,3 @@ Run dev server
 Run prod server
 
 ```docker compose -f docker-compose.prod.yml up --build```
-
-# How create venv?
-
-```poety init```
-
-```poetry config virtualenvs.path .```
-
-```poetry install```
