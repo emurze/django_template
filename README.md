@@ -1,6 +1,6 @@
 # Django Template
 
-# How install project?
+# How install template?
 
 * ```git clone git@github.com:emurze/django_template.git```
 
@@ -13,7 +13,7 @@
 
 * ```rm -rf .git```
 
-# How run project?
+# How set up template?
 
 ### Create venv
 
@@ -65,7 +65,7 @@ Create logs dir and general.log file <br>
 
 ```mkdir src/logs && > src/logs/general.log ```
 
-### Run server
+## How run template?
 
 Run dev server
 
