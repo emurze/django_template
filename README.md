@@ -17,7 +17,7 @@
 
 ### Create venv
 
-```poety init```
+```poetry init```
 
 ```poetry config virtualenvs.path .```
 
