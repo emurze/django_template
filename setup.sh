@@ -18,9 +18,9 @@ else
 fi
 
 
-sed -i "s/{new_project}/${project_name}/g" docker-compose.yml
+sed -i "s/{project_name}/${project_name}/g" docker-compose.yml
 
-sed -i "s/{new_project}/${project_name}/g" docker-compose.prod.yml
+sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
 
 
 # Setup env
