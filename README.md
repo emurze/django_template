@@ -30,7 +30,7 @@
 ```mkdir env && > env/.db.env && > env/.<project_name>.env```
 
 
-### Fill env ( Here example )
+### Fill env | Example:
 
 *env/.<project_name>.env*
 
