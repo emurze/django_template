@@ -10,15 +10,6 @@
 
 * ```bash <project_name>/setup.sh <project_name>```
 
-## or
-
-```
-git clone git@github.com:emurze/django_template.git &&
-mv django_template/ <project_name> && 
-bash <project_name>/setup.sh <project_name>
-```
-
-
 # How run project?
 
 Run dev server
