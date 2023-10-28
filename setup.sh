@@ -101,8 +101,3 @@ Run prod server
 rm -rf out.txt
 
 rm -rf setup.sh
-
-poetry install
-
-
-
