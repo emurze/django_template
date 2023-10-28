@@ -1,4 +1,10 @@
-# PROJECT TEMPLATE
+# Django Template
+
+# How install project?
+
+* git clone git@github.com:emurze/django_template.git
+* mv django_template <project_name>
+* cd <project_name>
 
 # Remove traces
 
@@ -54,7 +60,7 @@ Run prod server
 
 ```docker compose -f docker-compose.prod.yml up --build```
 
-# Create venv to future development
+# How create venv to future development?
 
 ```poety init```
 
