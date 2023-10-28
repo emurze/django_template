@@ -8,7 +8,7 @@
 * ```mv django_template/ <project_name>```
 
 
-* ```bash <project_name>/setup.sh <project_name>```
+* ```cd <project_name> && bash setup.sh <project_name>```
 
 # How run project?
 
