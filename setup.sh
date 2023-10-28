@@ -5,12 +5,21 @@
 
 rm -rf .git
 
+
 # Setup project name
 
-project_name=tdd
+RED='\033[0;31m'
+
+if [[ -z $1 ]]; then
+  echo -e "${RED}Please enter the project_name"
+  exit 1
+else
+  project_name=$1
+fi
 
 
 sed -i "s/{new_project}/${project_name}/g" docker-compose.yml
+
 sed -i "s/{new_project}/${project_name}/g" docker-compose.prod.yml
 
 
@@ -56,9 +65,22 @@ DB_POST=5432
 ''' > "env/.${project_name}.env"
 
 sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
+
 sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 
 
 # Create logs
 
-mkdir src/logs && > src/logs/general.log
+mkdir src/logs 2> out.txt
+
+touch src/logs/general.log 2> out.txt
+
+
+# Remove traces
+
+rm -rf out.txt
+
+rm -rf setup.sh
+
+
+
