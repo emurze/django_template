@@ -23,7 +23,5 @@ Run prod server in console or background
 
 ```docker compose -f docker-compose.prod.yml up --build``` 
 
-or 
-
-```docker compose -f docker-compose.prod.yml up -d --build```
+or ```docker compose -f docker-compose.prod.yml up -d --build```
 
