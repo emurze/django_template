@@ -15,19 +15,11 @@
 
 # How run project?
 
-Run dev server in console
+Run dev server in console or background
 
-```docker compose up --build```
+```docker compose up --build``` or ```docker compose up --build -d```
 
-Run dev server in background
+Run prod server in console or background
 
-```docker compose up --build -d```
-
-Run prod server in console
-
-```docker compose -f docker-compose.prod.yml up --build```
-
-Run prod server in background
-
-```docker compose -f docker-compose.prod.yml up -d --build```
+```docker compose -f docker-compose.prod.yml up --build``` or ```docker compose -f docker-compose.prod.yml up -d --build```
 
