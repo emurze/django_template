@@ -18,4 +18,6 @@ class Command(BaseCommand):
                 email=settings.DEFAULT_ADMIN_EMAIL,
                 password=settings.DEFAULT_ADMIN_PASSWORD,
             )
-            lg.debug(f'Admin {user.username} was created.')
+            self.stdout.write(f'Admin {user.username} was created.')
+        else:
+            self.stdout.write("Admin wasn't created.")
