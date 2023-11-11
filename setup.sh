@@ -34,7 +34,8 @@ poetry config virtualenvs.in-project true
 poetry add django~=4.2.6 \
            Pillow~=10.0.1 \
            psycopg2-binary~=2.9.9 \
-           gunicorn~=21.2.0
+           gunicorn~=21.2.0 \
+           coverage~=7.3.2
 
 poetry install
 
