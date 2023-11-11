@@ -1,6 +1,6 @@
 # Django Template
 
-# How install project?
+## How install project?
 
 ```
 git clone git@github.com:emurze/django_template.git
