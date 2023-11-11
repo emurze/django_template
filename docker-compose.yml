@@ -10,7 +10,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
- chrome:
+  chrome:
    image: selenium/standalone-chrome:latest
    networks:
      - backend
