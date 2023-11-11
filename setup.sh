@@ -90,8 +90,7 @@ mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
 
-echo 
-'''
+echo '''
 # Django Template
 
 ## How run project?
