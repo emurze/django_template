@@ -13,6 +13,23 @@
 
 * ```bash setup.sh <project_name>```
 
+# How run tests?
+
+Coverage
+```
+docker exec -it blog bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg manage.py test && poetry run coverage report"
+```
+
+Unittests
+```
+docker exec -it blog bash -c "cd src && poetry run python3 manage.py test apps"
+```
+
+End-To-End
+```
+docker exec -it blog bash -c "cd src && poetry run python3 manage.py test functional_tests"
+```
+
 # How run project?
 
 Run dev server in background
