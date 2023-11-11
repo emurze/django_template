@@ -1,6 +1,0 @@
-[run]
-omit =
-    */venv/*
-    */config/*
-    manage.py
-  
