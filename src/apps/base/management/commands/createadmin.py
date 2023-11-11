@@ -12,7 +12,7 @@ class Command(BaseCommand):
     help = 'This command creates superuser'
 
     def handle(self, *_, **__) -> None:
-        if not User.objects.filter(is_stuff=True).exists():
+        if not User.objects.filter(is_staff=True).exists():
             user = User.objects.create_superuser(
                 username=settings.DEFAULT_ADMIN_NAME,
                 email=settings.DEFAULT_ADMIN_EMAIL,
