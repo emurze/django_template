@@ -25,11 +25,5 @@ class ChromeDriverFactory(BaseDriverFactory):
 
 
 def get_driver() -> WebDriver:
-    """This function provides security from chrome container loading"""
-    while True:
-        try:
-            driver = ChromeDriverFactory.get_webdriver()
-        except urllib3.exceptions.MaxRetryError:
-            time.sleep(.1)
-        else:
-            return driver
+    """Driver Factory"""
+    return ChromeDriverFactory.get_webdriver()

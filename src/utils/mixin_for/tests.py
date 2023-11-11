@@ -1,6 +1,6 @@
 import unittest
 
-from src.utils.mixin_for.base import mixin_for
+from .base import mixin_for
 
 
 class MixinForTest(unittest.TestCase):

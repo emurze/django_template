@@ -10,6 +10,17 @@ services:
       - postgres_data:/var/lib/postgresql/data
     restart: unless-stopped
 
+ chrome:
+   image: selenium/standalone-chrome:latest
+   networks:
+     - backend
+   ports:
+     - '4444:4444'
+     - '7900:7900'
+   privileged: true
+   shm_size: 2g
+   restart: unless-stopped
+
   {project_name}:
     build: .
     container_name: '{project_name}'
@@ -32,6 +43,7 @@ services:
     restart: unless-stopped
     depends_on:
       - db
+      - chrome
 
 networks:
   backend:

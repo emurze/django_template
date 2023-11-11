@@ -35,7 +35,7 @@ class CreateAdminCommandTest(TestCase):
 
     # integration
     def test_cannot_create_admin_if_exists(self) -> None:
-        User.objects.create_user(
+        User.objects.create_supeuser(
             username='wef_wef',
             password='1234wef34',
         )

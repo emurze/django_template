@@ -106,7 +106,7 @@ docker compose -f docker-compose.prod.yml up --build
 
 Coverage
 ```
-docker exec -it blog bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --data-file logs/.coverage"
+docker exec -it blog bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report -m --show-missing --data-file logs/.coverage"
 ```
 
 Unittests
