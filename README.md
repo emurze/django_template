@@ -38,17 +38,17 @@ docker compose -f docker-compose.prod.yml up --build
 
 Coverage
 ```
-docker exec -it blog bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report -m --show-missing --data-file logs/.coverage"
+docker exec -it <project_name> bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report -m --show-missing --data-file logs/.coverage"
 ```
 
 Unittests
 ```
-docker exec -it blog bash -c "cd src && poetry run python3 manage.py test apps"
+docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test apps"
 ```
 
 End-To-End
 ```
-docker exec -it blog bash -c "cd src && poetry run python3 manage.py test functional_tests"
+docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test functional_tests"
 ```
 
 Libs Unittests
