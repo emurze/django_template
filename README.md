@@ -50,3 +50,8 @@ End-To-End
 ```
 docker exec -it blog bash -c "cd src && poetry run python3 manage.py test functional_tests"
 ```
+
+Libs Unittests
+```
+unittest discover src/utils/
+```
