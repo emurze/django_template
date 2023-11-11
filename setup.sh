@@ -37,14 +37,10 @@ poetry add django~=4.2.6 \
            Pillow~=10.0.1 \
            psycopg2-binary~=2.9.9 \
            gunicorn~=21.2.0 \
-           coverage~=7.3.2
+           coverage~=7.3.2 \
+           selenium~=4.15.2
 
 poetry install --no-root
-
-# Create functional tests dir
-
-mkdir src/functional_tests
-touch src/functional_tests/__init__.py
 
 # Create env
 
