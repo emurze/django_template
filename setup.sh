@@ -26,7 +26,6 @@ sed -i "s/{project_name}/${project_name}/g" docker-compose.yml
 
 sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
 
-
 # Setup env
 
 poetry init
@@ -106,7 +105,7 @@ docker compose -f docker-compose.prod.yml up --build
 
 Coverage
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report -m --show-missing --data-file logs/.coverage"
+docker exec -it <project_name> bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"
 ```
 
 Unittests
@@ -124,6 +123,8 @@ Libs Unittests
 unittest discover src/utils/
 ```
 ''' > README.md
+
+sed -i "s/<project_name>/${project_name}/g" README.md
 
 # Remove traces
 
