@@ -1,3 +1,5 @@
+set -e
+
 # Setup project
 
 
@@ -38,6 +40,11 @@ poetry add django~=4.2.6 \
            coverage~=7.3.2
 
 poetry install
+
+# Create functional tests dir
+
+mkdir src/functional_tests
+touch src/functional_tests/__init__.py
 
 
 # Create env
