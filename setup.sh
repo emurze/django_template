@@ -89,8 +89,6 @@ mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
 
-touch src/logs/.coverage 2> out.txt
-
 echo '''
 # Django Template
 
