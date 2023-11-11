@@ -12,6 +12,7 @@ ENV POETRY_NO_INTERACTION=1 \
 
 WORKDIR /service/
 
+COPY setup.cfg .
 COPY poetry.lock .
 COPY pyproject.toml .
 
