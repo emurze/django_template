@@ -90,18 +90,40 @@ mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
 
-echo '''
+echo 
+'''
 # Django Template
 
-# How run project?
+## How run project?
 
 Run dev server
 
-```docker compose up --build```
+```
+docker compose up --build
+```
 
 Run prod server
 
-```docker compose -f docker-compose.prod.yml up --build```
+```
+docker compose -f docker-compose.prod.yml up --build
+```
+
+## How run tests?
+
+Coverage
+```
+docker exec -it blog bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg manage.py test && poetry run coverage report"
+```
+
+Unittests
+```
+docker exec -it blog bash -c "cd src && poetry run python3 manage.py test apps"
+```
+
+End-To-End
+```
+docker exec -it blog bash -c "cd src && poetry run python3 manage.py test functional_tests"
+```
 ''' > README.md
 
 # Remove traces
