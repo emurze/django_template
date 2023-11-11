@@ -23,7 +23,7 @@ class CreateAdminCommandTest(TestCase):
         )
         cmd = ' '.join(regex.findall(out.getvalue()))
 
-        if cmd == "Admin wasn't created.":
+        if cmd == "You already have admin. Admin wasn't created.":
             return False
         else:
             return True
