@@ -51,7 +51,7 @@ End-To-End
 docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test functional_tests"
 ```
 
-Libs Unittests
+Utils Unittests
 ```
-unittest discover src/utils/
+docker exec -it <project_name> poetry run python3 -m unittest discover src/utils/
 ```
