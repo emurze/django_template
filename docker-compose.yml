@@ -37,6 +37,7 @@ services:
       - '8080:8080'
     volumes:
       - ./src:/service/src
+      - ./tests:/service/tests
       - app_static:/service/src/static
       - app_media:/service/src/media
     env_file:

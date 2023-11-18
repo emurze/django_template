@@ -115,7 +115,7 @@ docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py t
 
 End-To-End
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test functional_tests"
+docker exec -it <project_name> bash -c "poetry run python3 src/manage.py test tests"
 ```
 
 Utils Unittests
