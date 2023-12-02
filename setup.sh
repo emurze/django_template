@@ -132,7 +132,7 @@ jobs:
       db:
         image: postgres:13.0-alpine
         ports:
-          - "5432:5432"
+          - 5432:5432
         env:
           POSTGRES_DB: lopo
           POSTGRES_USER: lopo
