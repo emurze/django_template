@@ -304,6 +304,10 @@ make E2E_TESTS
 
 sed -i "s/<project_name>/${project_name}/g" README.md
 
+# Fill MakeFile
+
+sed -i "s/<project_name>/${project_name}/g" Makefile
+
 # Remove traces
 
 rm -rf out.txt
