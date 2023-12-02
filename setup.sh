@@ -100,6 +100,8 @@ mkdir .github/ 2> out.txt
 mkdir .github/workflows/ 2> out.txt
 touch .github/workflows/main.yml 2> out.txt
 
+poetry_match="'**/poetry.lock'"
+
 echo '''
 name: Django CI
 
@@ -177,7 +179,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles(\'**/poetry.lock\') }}
+          key: venv-${{ runner.os }}-${{ hashFiles($poetry_match) }}
 
       - name: Install Dependencies
         run: |
@@ -262,7 +264,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles(\'**/poetry.lock\') }}
+          key: venv-${{ runner.os }}-${{ hashFiles($poetry_match) }}
 
       - name: Install Dependencies
         run: |
