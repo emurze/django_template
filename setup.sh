@@ -177,7 +177,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles("**/poetry.lock") }}
 
       - name: Install Dependencies
         run: |
@@ -262,7 +262,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
+          key: venv-${{ runner.os }}-${{ hashFiles("**/poetry.lock") }}
 
       - name: Install Dependencies
         run: |
