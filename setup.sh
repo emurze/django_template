@@ -140,7 +140,7 @@ jobs:
 
       - name: Lint with flake8
         run: |
-          flake8 --config setup.cfg src
+          flake8 --config setup.cfg src tests
 
   unit-integration-tests:
     needs: lint
