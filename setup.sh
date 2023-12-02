@@ -100,7 +100,7 @@ mkdir .github/ 2> out.txt
 mkdir .github/workflows/ 2> out.txt
 touch .github/workflows/main.yml 2> out.txt
 
-echo """
+echo '''
 name: Django CI
 
 on: [push]
@@ -172,22 +172,15 @@ jobs:
           poetry config virtualenvs.create true
           poetry config virtualenvs.in-project true
 
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v3
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-
       - name: Install Dependencies
         run: |
           poetry install
 
       - name: Run Unit and Integration Tests
         run: |
-          bash -c 'cd src &&
+          bash -c "cd src &&
                    poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test &&
-                   poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage'
+                   poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"
 
   build:
     needs: unit-integration-tests
@@ -231,18 +224,18 @@ jobs:
 
       - name: Run production server
         run: |
-          echo 'SECRET_KEY=$SECRET_KEY' >> env/.lopo.env
-          echo 'DEBUG=$DEBUG' >> env/.lopo.env
-          echo 'LOGGING_LEVEL=$LOGGING_LEVEL' >> env/.lopo.env
-          echo 'DB_NAME=$DB_NAME' >> env/.lopo.env
-          echo 'DB_USER=$DB_USER' >> env/.lopo.env
-          echo 'DB_HOST=db' >> env/.lopo.env
-          echo 'DB_PASSWORD=$DB_PASSWORD' >> env/.lopo.env
-          echo 'STAGING_SERVER=$STAGING_SERVER' >> env/.lopo.env
+          echo "SECRET_KEY=$SECRET_KEY" >> env/.lopo.env
+          echo "DEBUG=$DEBUG" >> env/.lopo.env
+          echo "LOGGING_LEVEL=$LOGGING_LEVEL" >> env/.lopo.env
+          echo "DB_NAME=$DB_NAME" >> env/.lopo.env
+          echo "DB_USER=$DB_USER" >> env/.lopo.env
+          echo "DB_HOST=db" >> env/.lopo.env
+          echo "DB_PASSWORD=$DB_PASSWORD" >> env/.lopo.env
+          echo "STAGING_SERVER=$STAGING_SERVER" >> env/.lopo.env
 
-          echo 'POSTGRES_DB=$POSTGRES_DB' >> env/.db.env
-          echo 'POSTGRES_USER=$POSTGRES_USER' >> env/.db.env
-          echo 'POSTGRES_PASSWORD=$POSTGRES_PASSWORD' >> env/.db.env
+          echo "POSTGRES_DB=$POSTGRES_DB" >> env/.db.env
+          echo "POSTGRES_USER=$POSTGRES_USER" >> env/.db.env
+          echo "POSTGRES_PASSWORD=$POSTGRES_PASSWORD" >> env/.db.env
           
           docker compose -f docker-compose.prod.yml up -d
 
@@ -257,13 +250,6 @@ jobs:
           poetry config virtualenvs.create true
           poetry config virtualenvs.in-project true
 
-      - name: Load cached venv
-        id: cached-poetry-dependencies
-        uses: actions/cache@v3
-        with:
-          path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
-
       - name: Install Dependencies
         run: |
           poetry install
@@ -271,7 +257,7 @@ jobs:
       - name: Run End-To-End tests
         run: |
           poetry run python3 src/manage.py test tests
-""" > .github/workflows/main.yml
+''' > .github/workflows/main.yml
 
 
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
