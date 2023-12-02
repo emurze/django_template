@@ -77,6 +77,8 @@ sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
 
 sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 
+sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
+
 
 # Create logs
 
@@ -85,9 +87,9 @@ mkdir src/logs 2> out.txt
 touch src/logs/general.log 2> out.txt
 
 echo '''
-# Django Template
+# Project <project_name>
 
-## How run project?
+## How to run project?
 
 Run dev server
 
@@ -101,26 +103,21 @@ Run prod server
 docker compose -f docker-compose.prod.yml up --build
 ```
 
-## How run tests?
+## How to run tests?
 
 Coverage
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"
+make COVERAGE
 ```
 
 Unittests
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test apps"
+make UNIT_TESTS
 ```
 
 End-To-End
 ```
-docker exec -it <project_name> bash -c "poetry run python3 src/manage.py test tests"
-```
-
-Utils Unittests
-```
-docker exec -it <project_name> poetry run python3 -m unittest discover src/utils/
+make E2E_TESTS
 ```
 ''' > README.md
 

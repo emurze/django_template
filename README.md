@@ -1,6 +1,6 @@
 # Django Template
 
-## How install project?
+## How to install project?
 
 ```
 git clone git@github.com:emurze/django_template.git
@@ -19,7 +19,7 @@ bash setup.sh <project_name>
 ```
 
 
-## How run project?
+## How to run project?
 
 Run dev server
 
@@ -34,24 +34,19 @@ docker compose -f docker-compose.prod.yml up --build
 ```
 
 
-## How run tests?
+## How to run tests?
 
 Coverage
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"
+make COVERAGE
 ```
 
 Unittests
 ```
-docker exec -it <project_name> bash -c "cd src && poetry run python3 manage.py test apps"
+make UNIT_TESTS
 ```
 
 End-To-End
 ```
-docker exec -it <project_name> bash -c "poetry run python3 src/manage.py test tests"
-```
-
-Utils Unittests
-```
-docker exec -it <project_name> poetry run python3 -m unittest discover src/utils/
+make E2E_TESTS
 ```
