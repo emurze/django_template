@@ -179,7 +179,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles($poetry_match) }}
+          key: venv-${{ runner.os }}-${{ hashFiles({poetry_match}) }}
 
       - name: Install Dependencies
         run: |
@@ -264,7 +264,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles($poetry_match) }}
+          key: venv-${{ runner.os }}-${{ hashFiles({poetry_match}) }}
 
       - name: Install Dependencies
         run: |
@@ -277,6 +277,8 @@ jobs:
 
 
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
+
+sed -i "s/{poetry_match}/${poetry_match}/g" ".github/workflows/main.yml"
 
 
 # Create logs
