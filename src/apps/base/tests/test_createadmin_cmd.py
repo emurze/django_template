@@ -7,7 +7,7 @@ from django.test import TestCase
 from django.core.management import call_command
 
 User = get_user_model()
-regex = re.compile('\S+')
+regex = re.compile(r'\S+')
 
 
 class CreateAdminCommandTest(TestCase):
