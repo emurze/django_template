@@ -5,17 +5,17 @@ set -e
 # .github/
 #    workflows/
 #        main.yml
-#
+
 # .venv/
-#
+
 # env/
 #    .${project_name}.env
 #    .db.env
-#
+
 # README.md - sections updated
-#
+
 # dockerfile, makefile, and etc - project_name updated 
-#
+
 # setup.sh - deleted
 
 
