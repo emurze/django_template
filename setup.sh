@@ -53,7 +53,8 @@ poetry add django~=4.2.6 \
            psycopg2-binary~=2.9.9 \
            gunicorn~=21.2.0 \
            coverage~=7.3.2 \
-           selenium~=4.15.2
+           selenium~=4.15.2 \
+           flake8~=6.1.0
 
 poetry install --no-root
 
