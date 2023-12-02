@@ -259,11 +259,7 @@ jobs:
           poetry run python3 src/manage.py test tests
 ''' > .github/workflows/main.yml
 
-
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
-
-sed -i "s/{poetry_match}/${poetry_match}/g" ".github/workflows/main.yml"
-
 
 # Create logs
 
