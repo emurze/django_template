@@ -100,7 +100,7 @@ mkdir .github/ 2> out.txt
 mkdir .github/workflows/ 2> out.txt
 touch .github/workflows/main.yml 2> out.txt
 
-echo '''
+echo """
 name: Django CI
 
 on: [push]
@@ -177,7 +177,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles("**/poetry.lock") }}
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install Dependencies
         run: |
@@ -262,7 +262,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: .venv
-          key: venv-${{ runner.os }}-${{ hashFiles("**/poetry.lock") }}
+          key: venv-${{ runner.os }}-${{ hashFiles('**/poetry.lock') }}
 
       - name: Install Dependencies
         run: |
@@ -271,7 +271,7 @@ jobs:
       - name: Run End-To-End tests
         run: |
           poetry run python3 src/manage.py test tests
-''' > .github/workflows/main.yml
+""" > .github/workflows/main.yml
 
 
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
