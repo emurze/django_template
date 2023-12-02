@@ -9,7 +9,7 @@ E2E_TESTS:
 	docker exec -it <project_name> bash -c "poetry run python3 src/manage.py test tests"
 
 FLAKE8:
-	flake8 --config setup.cfg src
+	poetry run flake8 --config setup.cfg src tests
 
 TEST:
 	make FLAKE8
