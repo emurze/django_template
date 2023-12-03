@@ -68,7 +68,7 @@ Total Testing
 make test
 ```
 
-# How to run migrations7
+## How to run migrations7
 
 ```
 make migrations
@@ -78,8 +78,7 @@ make migrations
 make migrate
 ```
 
-# How to clean project7
-
+## How to clean project7
 
 Drop containers
 ```
