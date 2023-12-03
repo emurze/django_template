@@ -48,7 +48,7 @@ make run
 Run prod server
 
 ```
-make run_prod
+make runprod
 ```
 
 
