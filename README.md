@@ -48,9 +48,8 @@ make run
 Run prod server
 
 ```
-make runprod
+make run-prod
 ```
-
 
 ## How to run tests?
 
@@ -67,4 +66,27 @@ make e2etests
 Total Testing
 ```
 make test
+```
+
+# How to run migrations7
+
+```
+make migrations
+```
+
+```
+make migrate
+```
+
+# How to clean project7
+
+
+Drop containers
+```
+make down
+```
+
+Drop containers and volumes
+```
+make clean
 ```
