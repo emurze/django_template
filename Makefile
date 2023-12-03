@@ -22,7 +22,7 @@ lint:
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
-        poetry run flake8 --config setup.cfg src tests
+        poetry run flake8 --config setup.cfg src tests; \
     fi
 
 unittests:
