@@ -1,12 +1,17 @@
 # Django Template
 
-## How to setup git repository secrets
+## How to setup git repository?
 
-- SECRET_KEY
+1. Create new repository
+2. Click Settings
+3. Security -> Secrets and variables
 
+Generate SECRET_KEY
 ```
 pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
 ```
+
+- SECRET_KEY
 
 - DOCKER_PASSWORD
 
