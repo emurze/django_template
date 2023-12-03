@@ -32,7 +32,7 @@ unittests:
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
-        docker exec e-learning poetry run python3 -m unittest discover src/utils/; \
+        docker exec $DOCKER_CONTAINER_NAME poetry run python3 -m unittest discover src/utils/; \
     fi
 
 coverage:
@@ -42,7 +42,7 @@ coverage:
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
-        docker exec e-learning bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"; \
+        docker exec $DOCKER_CONTAINER_NAME bash -c "cd src && poetry run coverage run --rcfile ../setup.cfg --data-file logs/.coverage manage.py test && poetry run coverage report --rcfile ../setup.cfg --data-file logs/.coverage"; \
     fi
 
 e2etests:
@@ -52,7 +52,7 @@ e2etests:
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
-        docker exec e-learning bash -c "poetry run python3 src/manage.py test tests"; \
+        docker exec $DOCKER_CONTAINER_NAME bash -c "poetry run python3 src/manage.py test tests"; \
     fi
 
 test: lint coverage e2etests
