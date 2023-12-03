@@ -33,6 +33,13 @@ else
   project_name=$1
 fi
 
+if [[ -z $2 ]]; then
+  echo -e "${RED}Please enter the dockerhub_username"
+  exit 1
+else
+  dockerhub_username=$2
+fi
+
 
 sed -i "s/{project_name}/${project_name}/g" nginx/default.conf
 
@@ -198,7 +205,7 @@ jobs:
         context: .
         file: ./dockerfile
         push: true
-        tags: emurze/{project_name}:1
+        tags: {dockerhub_username}/{project_name}:1
 
   end-to-end-tests:
     needs: build
@@ -257,6 +264,8 @@ jobs:
 ''' > .github/workflows/main.yml
 
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
+
+sed -i "s/{dockerhub_username}/${dockerhub_username}/g" ".github/workflows/main.yml"
 
 # Create logs
 
