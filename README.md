@@ -2,8 +2,12 @@
 
 ## You should have
 
+- PROJECT_NAME
+
 - SECRET_KEY
+
 - DOCKER_USERNAME
+
 - DOCKER_PASSWORD
 
 ## How to install project?
