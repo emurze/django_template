@@ -44,7 +44,7 @@ if [[ -z $3 ]]; then
   echo -e "${RED}Please enter the docker_username"
   exit 1
 else
-  docker_username=$2
+  docker_username=$3
 fi
 
 
