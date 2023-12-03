@@ -114,7 +114,7 @@ poetry install --no-root
 
 # Create env
 
-mkdir env 2> out.txt
+mkdir -p env
 
 echo '''
 # POSTGRES
@@ -160,7 +160,7 @@ sed -i "s/{docker_username}/${docker_username}/g" ".github/workflows/main.yml"
 
 # Create logs
 
-mkdir src/logs 2> out.txt
+mkdir -p src/logs
 
 touch src/logs/general.log 2> out.txt
 
@@ -233,12 +233,19 @@ if [[ $1 == "<secret_key>" ]]; then
 fi
 
 
+# Setup logs
+
+mkdir -p src/logs
+
+touch src/logs/general.log 2> out.txt
+
+
 # Setup venv
 
 poetry install --no-root
 
 
-# Create env
+# Setup env
 
 mkdir -p env
 
@@ -273,4 +280,6 @@ sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
 sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 
 sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
+
+rm -rf out.txt
 ''' > setup.sh
