@@ -31,7 +31,9 @@ bash setup.sh <project_name> <secret_key> <docker_username>
 ## How to setup git reposity?
 
 Git repository secrets:
+  
   - SECRET_KEY
+  
   - DOCKER_PASSWORD
 
 ## How to run project?
