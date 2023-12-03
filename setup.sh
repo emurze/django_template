@@ -65,6 +65,22 @@ if [[ $3 == "<docker_username>" ]]; then
     exit 1;
 fi
 
+if [[ -z $4 ]]; then
+    echo -e "\n-------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the <github_username> argument${DEFAULT_COLOR}";
+    echo -e "\n-------------------------------------------\n";
+    exit 1;
+else
+    github_username=$4
+fi
+
+if [[ $4 == "<github_username>" ]]; then 
+    echo -e "\n-------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the <github_username> argument${DEFAULT_COLOR}";
+    echo -e "\n-------------------------------------------\n";
+    exit 1;
+fi
+
 
 # Fill nginx, docker-compose, docker-compose.prod
 
@@ -147,44 +163,17 @@ mkdir src/logs 2> out.txt
 touch src/logs/general.log 2> out.txt
 
 
-# Create README.md
+# Update README.md
 
-echo '''
-# Project <project_name>
+sed -i "s/emurze/${github_username}/g" README.md
 
-## How to run project?
-
-Run dev server
-
-```
-docker compose up --build
-```
-
-Run prod server
-
-```
-docker compose -f docker-compose.prod.yml up --build
-```
-
-## How to run tests?
-
-Unittests
-```
-make unittests
-```
-
-End-To-End
-```
-make e2etests
-```
-
-Total Testing
-```
-make test
-```
-''' > README.md
+sed -i "s/bash setup.sh "<project_name>" "<secret_key>" "<docker_username>"/bash setup.sh <secret_key>/g" README.md
 
 sed -i "s/<project_name>/${project_name}/g" README.md
+
+sed -i "s/Django Template/Project ${project_name}/g" README.md
+
+sed -i "s/django_template/${project_name}/g" README.md
 
 
 # Fill MakeFile
@@ -192,7 +181,12 @@ sed -i "s/<project_name>/${project_name}/g" README.md
 sed -i "s/{project_name}/${project_name}/g" Makefile
 
 
-# Remove traces
+# Remove tracesed -i "s/<project_name>/${project_name}/g" README.md
+
+sed -i "s/Django Template/Project ${project_name}/g" README.md
+
+sed -i "s/django_template/${project_name}/g" README.md
+
 
 rm -rf out.txt
 
