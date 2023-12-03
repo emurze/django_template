@@ -1,20 +1,13 @@
 #!/bin/sh
+
 set -e
 
-# Setup project
 
-# .git/
-#     hooks/
-#         pre-commit
-# .github/
-#     workflows/
-#        main.yml
-# .venv/
-# env/
-#    .${project_name}.env
-#    .db.env
-#
-# setup.sh - deleted
+# Colors
+
+DEFAULT_COLOR=\e[0m
+BLUE=\e[34m
+YELLOW=\e[33m
 
 
 # Remove traces
@@ -27,26 +20,34 @@ rm -rf .git
 RED='\033[0;31m'
 
 if [[ -z $1 ]]; then
-  echo -e "${RED}Please enter the project_name"
-  exit 1
+    echo "\n-------------------------------------------------------------\n";
+    echo "${YELLOW}Please enter the <project_name>${DEFAULT_COLOR}";
+    echo "\n-------------------------------------------------------------\n";
+    exit 1;
 else
-  project_name=$1
+    project_name=$1
 fi
 
 if [[ -z $2 ]]; then
-  echo -e "${RED}Please enter the secret_key"
-  exit 1
+    echo "\n-------------------------------------------------------------\n";
+    echo "${YELLOW}Please enter the <secret_key>${DEFAULT_COLOR}";
+    echo "\n-------------------------------------------------------------\n";
+    exit 1;
 else
-  secret_key=$2
+    secret_key=$2
 fi
 
 if [[ -z $3 ]]; then
-  echo -e "${RED}Please enter the docker_username"
-  exit 1
+    echo "\n-------------------------------------------------------------\n";
+    echo "${YELLOW}Please enter the <docker_username>${DEFAULT_COLOR}";
+    echo "\n-------------------------------------------------------------\n";
+    exit 1;
 else
-  docker_username=$3
+    docker_username=$3
 fi
 
+
+# Fill nginx, docker-compose, docker-compose.prod
 
 sed -i "s/{project_name}/${project_name}/g" nginx/default.conf
 
@@ -54,7 +55,8 @@ sed -i "s/{project_name}/${project_name}/g" docker-compose.yml
 
 sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
 
-# Setup env
+
+# Setup venv
 
 poetry init
 
@@ -69,6 +71,7 @@ poetry add django~=4.2.6 \
            flake8~=6.1.0
 
 poetry install --no-root
+
 
 # Create env
 
@@ -108,6 +111,7 @@ sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 
 sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
 
+
 # Create .github/workflows/main.yml
 
 mv .github/workflows/main.yml.sample .github/workflows/main.yml
@@ -116,11 +120,13 @@ sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
 
 sed -i "s/{docker_username}/${docker_username}/g" ".github/workflows/main.yml"
 
+
 # Create logs
 
 mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
+
 
 # Create README.md
 
@@ -161,15 +167,18 @@ make test
 
 sed -i "s/<project_name>/${project_name}/g" README.md
 
+
 # Fill MakeFile
 
 sed -i "s/{project_name}/${project_name}/g" Makefile
+
 
 # Remove traces
 
 rm -rf out.txt
 
 rm -rf setup.sh
+
 
 # Create git hook
 
@@ -183,5 +192,5 @@ echo '''
 #!/bin/sh
 make test
 ''' > .git/hooks/pre-commit
-
+# Setup Project
 
