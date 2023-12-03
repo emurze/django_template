@@ -1,4 +1,4 @@
-version: "3.5"
+version: "3.8"
 services:
   db:
     image: 'postgres:13'
@@ -11,16 +11,16 @@ services:
     restart: unless-stopped
 
   chrome:
-   image: selenium/standalone-chrome:latest
-   container_name: 'chrome'
-   networks:
-     - backend
-   ports:
-     - '4444:4444'
-     - '7900:7900'
-   privileged: true
-   shm_size: 2g
-   restart: unless-stopped
+    image: selenium/standalone-chrome:latest
+    container_name: 'chrome'
+    networks:
+      - backend
+    ports:
+      - '4444:4444'
+      - '7900:7900'
+    privileged: true
+    shm_size: 2g
+    restart: unless-stopped
 
   {project_name}:
     build: .
