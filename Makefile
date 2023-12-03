@@ -3,7 +3,7 @@ DEFAULT_COLOR=\e[0m
 BLUE=\e[34m
 YELLOW=\e[33m
 
-DOCKER_CONTAINER_NAME=e-learning
+DOCKER_CONTAINER_NAME={project_name}
 
 # Run
 
@@ -16,7 +16,14 @@ run_prod:
 # Tests | You can run tests only if you have previously run container
 
 lint:
-	poetry run flake8 --config setup.cfg src tests
+	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
+		echo "\n-------------------------------------------------------------\n"; \
+        echo "${YELLOW}Error Docker container $(DOCKER_CONTAINER_NAME) does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+		echo "\n-------------------------------------------------------------\n"; \
+		exit 1; \
+    else \
+        poetry run flake8 --config setup.cfg src tests
+    fi
 
 unittests:
 	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
