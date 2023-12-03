@@ -1,3 +1,4 @@
+#!/bin/sh
 set -e
 
 # Setup project
@@ -287,29 +288,19 @@ docker compose -f docker-compose.prod.yml up --build
 
 ## How to run tests?
 
-Lint
-```
-make LINT
-```
-
-Coverage
-```
-make COVERAGE
-```
-
 Unittests
 ```
-make UNIT_TESTS
+make unittests
 ```
 
 End-To-End
 ```
-make E2E_TESTS
+make e2etests
 ```
 
 Total Testing
 ```
-make TEST
+make test
 ```
 ''' > README.md
 
