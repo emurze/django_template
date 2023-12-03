@@ -42,13 +42,13 @@ bash setup.sh "<project_name>" "<secret_key>" "<docker_username>"
 Run dev server
 
 ```
-docker compose up --build
+make run
 ```
 
 Run prod server
 
 ```
-docker compose -f docker-compose.prod.yml up --build
+make run_prod
 ```
 
 
