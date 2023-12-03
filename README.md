@@ -21,13 +21,10 @@ cd <project_name>
 ```
 
 ```
-bash setup.sh <project_name> <docker_username>
+bash setup.sh <project_name> <secret_key> <docker_username>
 ```
 
 ## How to setup env?
-
-Env/<project_name>.env:
-  - SECRET_KEY
 
 Git repository secrets:
   - SECRET_KEY
