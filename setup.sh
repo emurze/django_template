@@ -269,6 +269,8 @@ mkdir src/logs 2> out.txt
 
 touch src/logs/general.log 2> out.txt
 
+# Create README.md
+
 echo '''
 # Project <project_name>
 
@@ -315,3 +317,18 @@ sed -i "s/<project_name>/${project_name}/g" Makefile
 rm -rf out.txt
 
 rm -rf setup.sh
+
+# Create git hook
+
+git init
+
+touch ./git/hooks/pre-commit
+
+chmod +x ./git/hooks/pre-commit
+
+echo '''
+#!/bin/sh
+make test
+''' > ./git/hooks/pre-commit
+
+
