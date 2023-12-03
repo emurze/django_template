@@ -16,9 +16,9 @@ run_prod:
 # Tests | You can run tests only if you have previously run container
 
 lint:
-	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
+	@if [ -z $$(docker ps -q -f name=$DOCKER_CONTAINER_NAME) ]; then \
 		echo "\n-------------------------------------------------------------\n"; \
-        echo "${YELLOW}Error Docker container $(DOCKER_CONTAINER_NAME) does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+        echo "${YELLOW}Error Docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
@@ -26,9 +26,9 @@ lint:
     fi
 
 unittests:
-	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
+	@if [ -z $$(docker ps -q -f name=$DOCKER_CONTAINER_NAME) ]; then \
 		echo "\n-------------------------------------------------------------\n"; \
-        echo "${YELLOW}Error Docker container $(DOCKER_CONTAINER_NAME) does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+        echo "${YELLOW}Error Docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
@@ -36,9 +36,9 @@ unittests:
     fi
 
 coverage:
-	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
+	@if [ -z $$(docker ps -q -f name=$DOCKER_CONTAINER_NAME) ]; then \
         echo "\n-------------------------------------------------------------\n"; \
-        echo "${YELLOW}Error docker container $(DOCKER_CONTAINER_NAME) does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+        echo "${YELLOW}Error docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
@@ -46,9 +46,9 @@ coverage:
     fi
 
 e2etests:
-	@if [ -z $$(docker ps -q -f name=$(DOCKER_CONTAINER_NAME)) ]; then \
+	@if [ -z $$(docker ps -q -f name=$DOCKER_CONTAINER_NAME) ]; then \
 		echo "\n-------------------------------------------------------------\n"; \
-        echo "${YELLOW}Error docker container $(DOCKER_CONTAINER_NAME) does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+        echo "${YELLOW}Error docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
 		echo "\n-------------------------------------------------------------\n"; \
 		exit 1; \
     else \
