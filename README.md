@@ -1,6 +1,6 @@
 # Django Template
 
-## You should have
+## Requirements
 
 - PROJECT_NAME
 
