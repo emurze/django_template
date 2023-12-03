@@ -5,9 +5,9 @@ set -e
 
 # Colors
 
-DEFAULT_COLOR=\e[0m
-BLUE=\e[34m
-YELLOW=\e[33m
+DEFAULT_COLOR="\e[0m"
+BLUE="\033[34m"
+YELLOW="\033[33m"
 
 
 # Remove traces
