@@ -28,7 +28,7 @@ fi
 
 if [[ $1 == "<project_name>" ]]; then 
     echo -e "\n------------------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <project_name> argument{DEFAULT_COLOR}";
+    echo -e "${YELLOW}Please enter the <project_name> argument${DEFAULT_COLOR}";
     echo -e "\n------------------------------------------------------------------------\n";
     exit 1;
 fi
@@ -44,7 +44,7 @@ fi
 
 if [[ $2 == "<secret_key>" ]]; then 
     echo -e "\n------------------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <secret_key> argument{DEFAULT_COLOR}";
+    echo -e "${YELLOW}Please enter the <secret_key> argument${DEFAULT_COLOR}";
     echo -e "\n------------------------------------------------------------------------\n";
     exit 1;
 fi
@@ -60,7 +60,7 @@ fi
 
 if [[ $3 == "<docker_username>" ]]; then 
     echo -e "\n------------------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <docker_username> argument{DEFAULT_COLOR}";
+    echo -e "${YELLOW}Please enter the <docker_username> argument${DEFAULT_COLOR}";
     echo -e "\n------------------------------------------------------------------------\n";
     exit 1;
 fi
