@@ -10,8 +10,26 @@ DOCKER_CONTAINER_NAME={project_name}
 run:
 	docker compose up -d --build
 
-runprod:
+run-prod:
 	docker compose -f docker-compose.prod.yml up -d --build
+
+# Migrations
+
+migrations:
+	docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py makemigrations"
+
+migrate:
+	docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py migrate"
+
+# Stop
+
+down:
+	docker compose down
+	docker compose -f docker-compose.prod.yml down
+
+clean:
+	docker compose down -v
+	docker compose -f docker-compose.prod.yml down -v
 
 # Tests | You can run tests only if you have previously run container
 
