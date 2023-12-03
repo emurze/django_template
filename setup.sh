@@ -322,13 +322,13 @@ rm -rf setup.sh
 
 git init
 
-touch ./git/hooks/pre-commit
+touch .git/hooks/pre-commit
 
-chmod +x ./git/hooks/pre-commit
+chmod +x .git/hooks/pre-commit
 
 echo '''
 #!/bin/sh
 make test
-''' > ./git/hooks/pre-commit
+''' > .git/hooks/pre-commit
 
 
