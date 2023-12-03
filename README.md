@@ -1,6 +1,8 @@
 # Django Template
 
-## Requirements to setup in setup.sh
+## Requirements 
+
+#### to setup in setup.sh
 
 - PROJECT_NAME
 
@@ -8,7 +10,7 @@
 
 - DOCKER_USERNAME
 
-## Requirements to setup git repository secrets
+#### to setup git repository secrets
 
 - SECRET_KEY
 
