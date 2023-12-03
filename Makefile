@@ -1,9 +1,9 @@
 # Run
 
-make run:
+run:
 	docker compose up --build
 
-make run prod:
+run_prod:
 	docker compose -f docker-compose.prod.yml up --build
 
 # Tests
