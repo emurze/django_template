@@ -197,3 +197,72 @@ echo '''
 #!/bin/sh
 make test
 ''' > .git/hooks/pre-commit
+
+
+echo '''
+#!/bin/sh
+
+set -e
+
+
+# Check arguments
+
+if [[ -z $1 ]]; then
+    echo -e "\n------------------------------------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the <secret_key> argument${DEFAULT_COLOR}";
+    echo -e "\n------------------------------------------------------------------------\n";
+    exit 1;
+else
+    secret-key=$1
+fi
+
+if [[ $1 == "<secret_key>" ]]; then 
+    echo -e "\n--------------------------------------\n";
+    echo -e "${YELLOW}Please enter the <secret_key> argument${DEFAULT_COLOR}";
+    echo -e "\n--------------------------------------\n";
+    exit 1;
+fi
+
+
+# Setup venv
+
+poetry install --no-root
+
+
+# Create env
+
+mkdir -p env 2
+
+echo """
+# POSTGRES
+POSTGRES_DB={project_name}
+POSTGRES_USER={project_name}
+POSTGRES_PASSWORD=12345678
+""" > "env/.db.env"
+
+echo """
+# APP
+SECRET_KEY={secret_key}
+DEBUG=1
+LOGGING_LEVEL=DEBUG
+
+# DB
+DB_NAME={project_name}
+DB_USER={project_name}
+DB_PASSWORD=12345678
+DB_HOST=db
+DB_POST=5432
+
+# ADMIN
+DEFAULT_ADMIN_NAME=adm1
+DEFAULT_ADMIN_EMAIL=adm1@adm1.com
+DEFAULT_ADMIN_PASSWORD=adm1
+""" > "env/.${project_name}.env"
+
+sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
+
+sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
+
+sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
+
+''' > setup.sh
