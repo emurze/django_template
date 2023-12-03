@@ -1,6 +1,6 @@
 # Django Template
 
-## How to setup git repository?
+## How to setup github repository?
 
 1. Create new repository
 
