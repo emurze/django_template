@@ -1,3 +1,12 @@
+# Run
+
+make run:
+	docker compose up --build
+
+make run prod:
+	docker compose -f docker-compose.prod.yml up --build
+
+
 # Tests
 
 lint:
