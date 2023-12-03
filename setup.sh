@@ -37,7 +37,7 @@ if [[ -z $2 ]]; then
   echo -e "${RED}Please enter the dockerhub_username"
   exit 1
 else
-  dockerhub_username=$2
+  docker_username=$2
 fi
 
 
@@ -196,8 +196,8 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
       with:
-        username: ${{ secrets.CLI_DOCKER_USERNAME }}
-        password: ${{ secrets.CLI_DOCKER_PASSWORD }}
+        username: {docker_username}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
       uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
@@ -205,7 +205,7 @@ jobs:
         context: .
         file: ./dockerfile
         push: true
-        tags: {dockerhub_username}/{project_name}:1
+        tags: {docker_username}/{project_name}:1
 
   end-to-end-tests:
     needs: build
@@ -228,7 +228,7 @@ jobs:
 
       - name: Run production server
         run: |
-          echo "SECRET_KEY=${{ secrets.CLI_DOCKER_USERNAME }}" >> env/.{project_name}.env
+          echo "SECRET_KEY=${{ secrets.SECRET_KEY }}" >> env/.{project_name}.env
           echo "DEBUG=$DEBUG" >> env/.{project_name}.env
           echo "LOGGING_LEVEL=$LOGGING_LEVEL" >> env/.{project_name}.env
           echo "DB_NAME=$DB_NAME" >> env/.{project_name}.env
@@ -265,7 +265,7 @@ jobs:
 
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
 
-sed -i "s/{dockerhub_username}/${dockerhub_username}/g" ".github/workflows/main.yml"
+sed -i "s/{docker_username}/${docker_username}/g" ".github/workflows/main.yml"
 
 # Create logs
 
