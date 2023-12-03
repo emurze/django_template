@@ -34,7 +34,7 @@ cd <project_name>
 ```
 
 ```
-bash setup.sh "<project_name>" "<secret_key>" "<docker_username>"
+bash setup.sh "<project_name>" "<secret_key>" "<docker_username>" "<github_username>"
 ```
 
 ## How to run project?
