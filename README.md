@@ -2,15 +2,15 @@
 
 ## Requirements
 
+#### You should specify in setup.sh
+
 - PROJECT_NAME
 
 - SECRET_KEY
 
 - DOCKER_USERNAME
 
-- DOCKER_PASSWORD
-
-**You should setup git repository secrets**
+#### You should setup git repository secrets
 
 - SECRET_KEY
 
