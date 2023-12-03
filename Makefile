@@ -1,7 +1,7 @@
 # Colors
 DEFAULT_COLOR=\e[0m
 BLUE=\e[34m
-YELLOW=\e[33m
+YELLOW=\033[33m
 
 DOCKER_CONTAINER_NAME={project_name}
 
