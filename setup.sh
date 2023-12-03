@@ -222,7 +222,7 @@ if [[ -z $1 ]]; then
     echo -e "\n------------------------------------------------------------------------\n";
     exit 1;
 else
-    secret-key=$1
+    secret_key=$1
 fi
 
 if [[ $1 == "<secret_key>" ]]; then 
@@ -240,7 +240,7 @@ poetry install --no-root
 
 # Create env
 
-mkdir -p env 2
+mkdir -p env
 
 echo """
 # POSTGRES
