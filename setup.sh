@@ -167,8 +167,6 @@ touch src/logs/general.log 2> out.txt
 
 sed -i "s/emurze/${github_username}/g" README.md
 
-sed -i '/#####/,/#####/d' README.md
-
 sed -i 's/bash setup.sh "<project_name>" "<secret_key>" "<docker_username>" "<github_username>"/bash setup.sh <secret_key>/g' README.md
 
 sed -i "s/<project_name>/${project_name}/g" README.md
@@ -176,6 +174,8 @@ sed -i "s/<project_name>/${project_name}/g" README.md
 sed -i "s/Django Template/Project ${project_name}/g" README.md
 
 sed -i "s/django_template/${project_name}/g" README.md
+
+sed -i '/#####/,/#####/d' README.md
 
 
 # Remove traces
