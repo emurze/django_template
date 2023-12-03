@@ -6,7 +6,9 @@ run:
 run_prod:
 	docker compose -f docker-compose.prod.yml up --build
 
-# Tests
+# Tests 
+
+# You can run tests only if you have previously run container
 
 lint:
 	poetry run flake8 --config setup.cfg src tests
