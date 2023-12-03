@@ -26,18 +26,16 @@ bash setup.sh <project_name> <docker_username>
 
 ## How to setup env?
 
-Cenv/<project_name>.env:
+Env/<project_name>.env:
   - SECRET_KEY
 
-Git repository add:
+Git repository secrets:
   - SECRET_KEY
   - DOCKER_PASSWORD
 
 ## How to run project?
 
 Run dev server
-
-DOCKER_USERNAME
 
 ```
 docker compose up --build
