@@ -14,9 +14,9 @@
     ```
 5. Add secrets
 
-    - SECRET_KEY
+   - SECRET_KEY
 
-    - DOCKER_PASSWORD
+   - DOCKER_PASSWORD
 
 
 ## How to install project?
