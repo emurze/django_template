@@ -24,7 +24,7 @@ cd <project_name>
 bash setup.sh <project_name> <secret_key> <docker_username>
 ```
 
-## How to setup env?
+## How to setup git reposity?
 
 Git repository secrets:
   - SECRET_KEY
