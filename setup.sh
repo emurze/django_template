@@ -114,12 +114,12 @@ env:
   DEBUG: 1
   LOGGING_LEVEL: DEBUG
 
-  DB_NAME: lopo
-  DB_USER: lopo
+  DB_NAME: {project_name}
+  DB_USER: {project_name}
   DB_PASSWORD: 12345678
 
-  POSTGRES_DB: lopo
-  POSTGRES_USER: lopo
+  POSTGRES_DB: {project_name}
+  POSTGRES_USER: {project_name}
   POSTGRES_PASSWORD: 12345678
 
 jobs:
@@ -151,8 +151,8 @@ jobs:
         ports:
           - 5432:5432
         env:
-          POSTGRES_DB: lopo
-          POSTGRES_USER: lopo
+          POSTGRES_DB: {project_name}
+          POSTGRES_USER: {project_name}
           POSTGRES_PASSWORD: 12345678
     steps:
       - name: Set up Repository
@@ -202,7 +202,7 @@ jobs:
         context: .
         file: ./dockerfile
         push: true
-        tags: emurze/lopo:1
+        tags: emurze/{project_name}:1
 
   end-to-end-tests:
     needs: build
@@ -225,14 +225,14 @@ jobs:
 
       - name: Run production server
         run: |
-          echo "SECRET_KEY=$SECRET_KEY" >> env/.lopo.env
-          echo "DEBUG=$DEBUG" >> env/.lopo.env
-          echo "LOGGING_LEVEL=$LOGGING_LEVEL" >> env/.lopo.env
-          echo "DB_NAME=$DB_NAME" >> env/.lopo.env
-          echo "DB_USER=$DB_USER" >> env/.lopo.env
-          echo "DB_HOST=db" >> env/.lopo.env
-          echo "DB_PASSWORD=$DB_PASSWORD" >> env/.lopo.env
-          echo "STAGING_SERVER=$STAGING_SERVER" >> env/.lopo.env
+          echo "SECRET_KEY=$SECRET_KEY" >> env/.{project_name}.env
+          echo "DEBUG=$DEBUG" >> env/.{project_name}.env
+          echo "LOGGING_LEVEL=$LOGGING_LEVEL" >> env/.{project_name}.env
+          echo "DB_NAME=$DB_NAME" >> env/.{project_name}.env
+          echo "DB_USER=$DB_USER" >> env/.{project_name}.env
+          echo "DB_HOST=db" >> env/.{project_name}.env
+          echo "DB_PASSWORD=$DB_PASSWORD" >> env/.{project_name}.env
+          echo "STAGING_SERVER=$STAGING_SERVER" >> env/.{project_name}.env
 
           echo "POSTGRES_DB=$POSTGRES_DB" >> env/.db.env
           echo "POSTGRES_USER=$POSTGRES_USER" >> env/.db.env
