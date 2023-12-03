@@ -9,9 +9,9 @@
 3. Security -> Secrets and variables -> Actions
 
 4. Generate SECRET_KEY
-  ```
-  pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-  ```
+    ```
+    pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+    ```
 5. Add secrets
 
   - SECRET_KEY
