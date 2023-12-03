@@ -16,10 +16,24 @@ run-prod:
 # Migrations
 
 migrations:
-	docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py makemigrations"
+	@if [ -z $$(docker ps -q -f name=${DOCKER_CONTAINER_NAME}) ]; then \
+		echo "\n-------------------------------------------------------------\n"; \
+        echo "${YELLOW}Error Docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+		echo "\n-------------------------------------------------------------\n"; \
+		exit 1; \
+    else \
+        docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py makemigrations"; \
+    fi
 
 migrate:
-	docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py migrate"
+	@if [ -z $$(docker ps -q -f name=${DOCKER_CONTAINER_NAME}) ]; then \
+		echo "\n-------------------------------------------------------------\n"; \
+        echo "${YELLOW}Error Docker container ${DOCKER_CONTAINER_NAME} does not exist. Use ${BLUE}make run${DEFAULT_COLOR}"; \
+		echo "\n-------------------------------------------------------------\n"; \
+		exit 1; \
+    else \
+        docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py migrate"; \
+    fi
 
 # Stop
 
