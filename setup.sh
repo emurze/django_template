@@ -15,9 +15,7 @@ YELLOW=\e[33m
 rm -rf .git
 
 
-# Setup project name
-
-RED='\033[0;31m'
+# Check arguments
 
 if [[ -z $1 ]]; then
     echo "\n-------------------------------------------------------------\n";
@@ -192,5 +190,3 @@ echo '''
 #!/bin/sh
 make test
 ''' > .git/hooks/pre-commit
-# Setup Project
-
