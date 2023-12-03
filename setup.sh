@@ -34,7 +34,14 @@ else
 fi
 
 if [[ -z $2 ]]; then
-  echo -e "${RED}Please enter the dockerhub_username"
+  echo -e "${RED}Please enter the secret_key"
+  exit 1
+else
+  secret_key=$2
+fi
+
+if [[ -z $3 ]]; then
+  echo -e "${RED}Please enter the docker_username"
   exit 1
 else
   docker_username=$2
@@ -78,7 +85,7 @@ POSTGRES_PASSWORD=12345678
 
 echo '''
 # APP
-SECRET_KEY=django-insecure-@l8=fm$s+-mjm-2i0)uoly9j+2pctx@+^k27(g$(bqw%i%jk-$
+SECRET_KEY={secret_key}
 DEBUG=1
 LOGGING_LEVEL=DEBUG
 
@@ -98,6 +105,9 @@ DEFAULT_ADMIN_PASSWORD=adm1
 sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
 
 sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
+
+
+sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
 
 
 # Create .github/workflows/main.yml
