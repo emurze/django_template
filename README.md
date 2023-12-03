@@ -1,15 +1,5 @@
 # Django Template
 
-## Generate SECRET_KEY
-
-```
-pip install Django==4
-```
-
-```
-python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-```
-
 ## Requirements
 
 - PROJECT_NAME
@@ -20,11 +10,21 @@ python3 -c 'from django.core.management.utils import get_random_secret_key; prin
 
 - DOCKER_PASSWORD
 
-## You should setup git repository secrets
+**You should setup git repository secrets**
 
 - SECRET_KEY
 
 - DOCKER_PASSWORD
+
+## How to Generate SECRET_KEY
+
+```
+pip install Django==4
+```
+
+```
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+```
 
 ## How to install project?
 
