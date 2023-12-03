@@ -167,7 +167,7 @@ touch src/logs/general.log 2> out.txt
 
 sed -i "s/emurze/${github_username}/g" README.md
 
-sed -i "s/bash setup.sh "<project_name>" "<secret_key>" "<docker_username>"/bash setup.sh <secret_key>/g" README.md
+sed -i 's/bash setup.sh "<project_name>" "<secret_key>" "<docker_username>"/bash setup.sh <secret_key>/g' README.md
 
 sed -i "s/<project_name>/${project_name}/g" README.md
 
