@@ -3,17 +3,20 @@
 ## How to setup git repository?
 
 1. Create new repository
+
 2. Click Settings
-3. Security -> Secrets and variables
 
-Generate SECRET_KEY
-```
-pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
-```
+3. Security -> Secrets and variables -> Actions
 
-- SECRET_KEY
+4. Generate SECRET_KEY
+  ```
+  pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+  ```
+5. Add secrets
 
-- DOCKER_PASSWORD
+  - SECRET_KEY
+
+  - DOCKER_PASSWORD
 
 
 ## How to install project?
