@@ -1,5 +1,15 @@
 # Django Template
 
+## Generate SECRET_KEY
+
+```
+pip install Django~=4
+```
+
+```
+python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
+```
+
 ## Requirements
 
 - PROJECT_NAME
