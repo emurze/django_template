@@ -310,7 +310,7 @@ sed -i "s/<project_name>/${project_name}/g" README.md
 
 # Fill MakeFile
 
-sed -i "s/<project_name>/${project_name}/g" Makefile
+sed -i "s/{project_name}/${project_name}/g" Makefile
 
 # Remove traces
 
