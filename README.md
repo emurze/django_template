@@ -15,7 +15,7 @@ cd <project_name>
 ```
 
 ```
-bash setup.sh <project_name>
+bash setup.sh <project_name> <dockerhub_username>
 ```
 
 
