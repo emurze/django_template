@@ -6,7 +6,9 @@ set -e
 # Colors
 
 DEFAULT_COLOR="\e[0m"
+
 BLUE="\033[34m"
+
 YELLOW="\033[33m"
 
 
@@ -199,14 +201,16 @@ make test
 ''' > .git/hooks/pre-commit
 
 
-echo '''#!/bin/sh
+echo '''#!/bin/bash
 
 set -e
 
 # Colors
 
 DEFAULT_COLOR="\e[0m"
+
 BLUE="\033[34m"
+
 YELLOW="\033[33m"
 
 
