@@ -16,7 +16,7 @@
 
 - DOCKER_PASSWORD
 
-## How to Generate SECRET_KEY
+### How to Generate SECRET_KEY
 
 ```
 pip install Django==4
