@@ -18,9 +18,9 @@ rm -rf .git
 # Check arguments
 
 if [[ -z $1 ]]; then
-    echo -e "\n-------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <project_name>${DEFAULT_COLOR}";
-    echo -e "\n-------------------------------------------------------------\n";
+    echo -e "\n---------------------------------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the <project_name> <secret_key> <docker_username>${DEFAULT_COLOR}";
+    echo -e "\n---------------------------------------------------------------------\n";
     exit 1;
 else
     project_name=$1
@@ -28,7 +28,7 @@ fi
 
 if [[ -z $2 ]]; then
     echo -e "\n-------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <secret_key>${DEFAULT_COLOR}";
+    echo -e "${YELLOW}Please enter the <secret_key> <docker_username>${DEFAULT_COLOR}";
     echo -e "\n-------------------------------------------------------------\n";
     exit 1;
 else
