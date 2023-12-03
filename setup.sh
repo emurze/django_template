@@ -199,10 +199,15 @@ make test
 ''' > .git/hooks/pre-commit
 
 
-echo '''
-#!/bin/sh
+echo '''#!/bin/sh
 
 set -e
+
+# Colors
+
+DEFAULT_COLOR="\e[0m"
+BLUE="\033[34m"
+YELLOW="\033[33m"
 
 
 # Check arguments
@@ -264,5 +269,4 @@ sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
 sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 
 sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
-
 ''' > setup.sh
