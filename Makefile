@@ -10,7 +10,7 @@ DOCKER_CONTAINER_NAME={project_name}
 run:
 	docker compose up -d --build
 
-run_prod:
+runprod:
 	docker compose -f docker-compose.prod.yml up -d --build
 
 # Tests | You can run tests only if you have previously run container
