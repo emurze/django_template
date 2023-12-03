@@ -105,10 +105,8 @@ name: Django CI
 on: [push]
 
 env:
-  CLI_DOCKER_USERNAME: emurze
   STAGING_SERVER: localhost
 
-  SECRET_KEY: django-insecure-@l8=fm$s+-mjm-2i0)uoly9j+2pctx@+^k27(g$(bqw%i%jk-$
   DEBUG: 1
   LOGGING_LEVEL: DEBUG
 
@@ -191,7 +189,7 @@ jobs:
     - name: Login to Docker Hub
       uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
       with:
-        username: ${{ env.CLI_DOCKER_USERNAME }}
+        username: ${{ secrets.CLI_DOCKER_USERNAME }}
         password: ${{ secrets.CLI_DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
@@ -223,7 +221,7 @@ jobs:
 
       - name: Run production server
         run: |
-          echo "SECRET_KEY=$SECRET_KEY" >> env/.{project_name}.env
+          echo "SECRET_KEY=${{ secrets.CLI_DOCKER_USERNAME }}" >> env/.{project_name}.env
           echo "DEBUG=$DEBUG" >> env/.{project_name}.env
           echo "LOGGING_LEVEL=$LOGGING_LEVEL" >> env/.{project_name}.env
           echo "DB_NAME=$DB_NAME" >> env/.{project_name}.env
