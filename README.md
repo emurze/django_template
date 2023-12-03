@@ -3,7 +3,7 @@
 ## Generate SECRET_KEY
 
 ```
-pip install Django~=4
+pip install Django==4
 ```
 
 ```
