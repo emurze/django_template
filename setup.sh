@@ -167,7 +167,7 @@ touch src/logs/general.log 2> out.txt
 
 sed -i "s/emurze/${github_username}/g" README.md
 
-sed -i "s/```mv django_template/ <project_name>```//g" README.md
+sed -i "s/mv django_template/ <project_name>//g" README.md
 
 sed -i 's/bash setup.sh "<project_name>" "<secret_key>" "<docker_username>" "<github_username>"/bash setup.sh <secret_key>/g' README.md
 
