@@ -1,10 +1,12 @@
-# Colors
+# Variables
+
 DEFAULT_COLOR=\e[0m
 BLUE=\e[34m
 YELLOW=\033[33m
 
 DOCKER_CONTAINER_NAME={project_name}
 DOCKER_NAME_LINE=$(echo "hiwef" | tr '[:graph:]' '-')
+
 
 # Run
 
@@ -13,6 +15,7 @@ run:
 
 run-prod:
 	docker compose -f docker-compose.prod.yml up -d --build
+
 
 # Migrations
 
@@ -35,6 +38,7 @@ migrate:
 	else \
 		docker exec ${DOCKER_CONTAINER_NAME} bash -c "cd src && poetry run python3 manage.py migrate"; \
 	fi
+
 
 # Stop
 
