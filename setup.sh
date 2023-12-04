@@ -52,9 +52,9 @@ if [[ $2 == "<secret_key>" ]]; then
 fi
 
 if [[ -z $3 ]]; then
-    echo -e "\n---------------------------------------------------------------\n";
+    echo -e "\n--------------------------------------------------------------\n";
     echo -e "${YELLOW}Please enter the arguments <docker_username> <github_username>${DEFAULT_COLOR}";
-    echo -e "\n---------------------------------------------------------------\n";
+    echo -e "\n--------------------------------------------------------------\n";
     exit 1;
 else
     docker_username=$3
