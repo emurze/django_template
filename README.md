@@ -36,7 +36,12 @@ cd <project_name>
 ```
 
 ```
-bash setup.sh "<project_name>" "<secret_key>" "<docker_username>" "<github_username>"
+bash setup.sh <project_name> "<secret_key>" <docker_username> <github_username>
+```
+
+Example
+```
+bash setup.sh <project_name> "sb+3xjvr&37u7#$s6)xmzs+%0at_ze792q(wop$znwpwrk556$" emurze emurze
 ```
 
 ## How to run project?
