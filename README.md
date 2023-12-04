@@ -13,12 +13,15 @@
     pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
     ```
    
-6. Add secrets
+5. Add secrets
 
   - SECRET_KEY
 
   - DOCKER_PASSWORD
 
+6. Install and push project
+
+7. 
 
 ## How to install project?
 
