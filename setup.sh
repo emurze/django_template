@@ -108,7 +108,7 @@ sed -i "s/{docker_username}/${docker_username}/g" ".github/workflows/main.yml"
 
 sed -i "s/emurze/${github_username}/g" README.md
 
-sed -i 's/bash setup.sh <project_name> "<secret_key>" <docker_username> <github_username>/bash setup.sh <secret_key>/g' README.md
+sed -i 's/bash setup.sh <project_name> "<secret_key>" <docker_username> <github_username>/bash setup.sh "<secret_key>"/g' README.md
 
 sed -i "s/<project_name>/${project_name}/g" README.md
 
