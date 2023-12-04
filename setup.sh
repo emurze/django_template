@@ -95,67 +95,6 @@ sed -i "s/{project_name}/${project_name}/g" docker-compose.prod.yml
 sed -i "s/{project_name}/${project_name}/g" Makefile
 
 
-# Setup venv
-
-poetry init
-
-poetry config virtualenvs.in-project true
-
-poetry add django~=4.2.6 \
-           Pillow~=10.0.1 \
-           psycopg2-binary~=2.9.9 \
-           gunicorn~=21.2.0 \
-           coverage~=7.3.2 \
-           selenium~=4.15.2 \
-           flake8~=6.1.0
-
-poetry install --no-root
-
-
-# Create env
-
-mkdir -p env
-
-echo '''
-# POSTGRES
-POSTGRES_DB={project_name}
-POSTGRES_USER={project_name}
-POSTGRES_PASSWORD=12345678
-''' > "env/.db.env"
-
-echo '''
-# APP
-SECRET_KEY={secret_key}
-DEBUG=1
-LOGGING_LEVEL=DEBUG
-
-# DB
-DB_NAME={project_name}
-DB_USER={project_name}
-DB_PASSWORD=12345678
-DB_HOST=db
-DB_POST=5432
-
-# ADMIN
-DEFAULT_ADMIN_NAME=adm1
-DEFAULT_ADMIN_EMAIL=adm1@adm1.com
-DEFAULT_ADMIN_PASSWORD=adm1
-''' > "env/.${project_name}.env"
-
-sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
-
-sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
-
-sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
-
-
-# Create logs
-
-mkdir -p src/logs
-
-touch src/logs/general.log 2> out.txt
-
-
 # Create .github/workflows/main.yml
 
 mv .github/workflows/main.yml.sample .github/workflows/main.yml
@@ -199,6 +138,21 @@ echo '''
 #!/bin/sh
 make test
 ''' > .git/hooks/pre-commit
+
+
+# Setup pyporject.toml, poetry.lock
+
+poetry init
+
+poetry config virtualenvs.in-project true
+
+poetry add django~=4.2.6 \
+           Pillow~=10.0.1 \
+           psycopg2-binary~=2.9.9 \
+           gunicorn~=21.2.0 \
+           coverage~=7.3.2 \
+           selenium~=4.15.2 \
+           flake8~=6.1.0
 
 
 echo '''#!/bin/sh
@@ -281,3 +235,7 @@ rm -rf out.txt
 ''' > setup.sh
 
 sed -i "s/{project_name}/${project_name}/g" setup.sh
+
+# Setup venv, env, logs
+
+bash setup.sh ${secret_key}
