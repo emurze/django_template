@@ -149,6 +149,13 @@ sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
 sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
 
 
+# Create logs
+
+mkdir -p src/logs
+
+touch src/logs/general.log 2> out.txt
+
+
 # Create .github/workflows/main.yml
 
 mv .github/workflows/main.yml.sample .github/workflows/main.yml
@@ -156,13 +163,6 @@ mv .github/workflows/main.yml.sample .github/workflows/main.yml
 sed -i "s/{project_name}/${project_name}/g" ".github/workflows/main.yml"
 
 sed -i "s/{docker_username}/${docker_username}/g" ".github/workflows/main.yml"
-
-
-# Create logs
-
-mkdir -p src/logs
-
-touch src/logs/general.log 2> out.txt
 
 
 # Update README.md
