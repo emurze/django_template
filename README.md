@@ -4,24 +4,30 @@
 
 1. Create new repository
 
-2. Click Settings
+2. Click Settings -> Security -> Secrets and variables -> Actions
 
-3. Security -> Secrets and variables -> Actions
-
-4. Generate SECRET_KEY like ```sb+3xjvr&37u7#$s6)xmzs+%0at_ze792q(wop$znwpwrk556$```
+3. Generate SECRET_KEY like ```sb+3xjvr&37u7#$s6)xmzs+%0at_ze792q(wop$znwpwrk556$```
     ```
     pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
     ```
    
-5. Add secrets
+4. Add secrets
 
   - SECRET_KEY
 
   - DOCKER_PASSWORD
 
-6. Install and push project
+5. Install and push project
 
-7. 
+6. Click Settings -> Branches -> Add branch protection rule
+
+    - type ```master```
+      
+    - Add Require a pull request before merging + Dismiss stale pull request approvals when new commits are pushed
+    
+    - Require status checks to pass before merging + Add lint, unit-integraton-tests, build, end-to-end-tests
+    
+    - Do not allow bypassing the above settings
 
 ## How to install project?
 
