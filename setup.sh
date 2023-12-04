@@ -254,7 +254,7 @@ echo """
 POSTGRES_DB={project_name}
 POSTGRES_USER={project_name}
 POSTGRES_PASSWORD=12345678
-""" > "env/.db.env"
+""" > env/.db.env
 
 echo """
 # APP
@@ -273,11 +273,11 @@ DB_POST=5432
 DEFAULT_ADMIN_NAME=adm1
 DEFAULT_ADMIN_EMAIL=adm1@adm1.com
 DEFAULT_ADMIN_PASSWORD=adm1
-""" > "env/.{project_name}.env"
+""" > env/.{project_name}.env
+
+sed -i "s/{secret_key}/${secret_key}/g" env/.{project_name}.env
 
 rm -rf out.txt
 ''' > setup.sh
 
 sed -i "s/{project_name}/${project_name}/g" setup.sh
-
-sed -i "s/{secret_key}/${secret_key}/g" setup.sh
