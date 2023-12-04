@@ -8,7 +8,7 @@ YELLOW=\033[33m
 
 DOCKER_CONTAINER_NAME={project_name}
 
-DOCKER_NAME_LINE=$(echo "{project_name}" | tr '[:graph:]' '-')
+DOCKER_NAME_LINE=$$(echo "{project_name}" | tr '[:graph:]' '-')
 
 
 # Run
