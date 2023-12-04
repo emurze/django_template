@@ -3,6 +3,11 @@
 set -e
 
 
+# Remove traces
+
+rm -rf .git
+
+
 # Colors
 
 DEFAULT_COLOR="\e[0m"
@@ -10,11 +15,6 @@ DEFAULT_COLOR="\e[0m"
 BLUE="\033[34m"
 
 YELLOW="\033[33m"
-
-
-# Remove traces
-
-rm -rf .git
 
 
 # Check arguments
@@ -146,19 +146,16 @@ poetry add django~=4.2.6 \
            coverage~=7.3.2 \
            selenium~=4.15.2 \
            flake8~=6.1.0
+           
 
-
-# Remove traces
+# Recreate setup.sh
 
 rm -rf setup.sh
-
-
-# Create setup.sh
-
 
 echo '''#!/bin/sh
 
 set -e
+
 
 # Colors
 
@@ -236,6 +233,7 @@ rm -rf out.txt
 ''' > setup.sh
 
 sed -i "s/{project_name}/${project_name}/g" setup.sh
+
 
 # Setup venv, env, logs
 
