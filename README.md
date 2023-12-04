@@ -23,7 +23,7 @@
 
     - type ```master```
       
-    - Add Require a pull request before merging + Dismiss stale pull request approvals when new commits are pushed
+    - Add Require a pull request before merging - Require approvals + Dismiss stale pull request approvals when new commits are pushed
     
     - Require status checks to pass before merging + Add lint, unit-integraton-tests, build, end-to-end-tests
     
