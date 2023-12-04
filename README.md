@@ -8,11 +8,10 @@
 
 3. Security -> Secrets and variables -> Actions
 
-4. Generate SECRET_KEY
+4. Generate SECRET_KEY like ```sb+3xjvr&37u7#$s6)xmzs+%0at_ze792q(wop$znwpwrk556$```
     ```
     pip install Django==4 && python3 -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
     ```
-    like ```sb+3xjvr&37u7#$s6)xmzs+%0at_ze792q(wop$znwpwrk556$```
    
 6. Add secrets
 
