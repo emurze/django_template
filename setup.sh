@@ -201,7 +201,7 @@ make test
 ''' > .git/hooks/pre-commit
 
 
-echo '''#!/bin/bash
+echo '''#!/bin/sh
 
 set -e
 
@@ -217,9 +217,9 @@ YELLOW="\033[33m"
 # Check arguments
 
 if [[ -z $1 ]]; then
-    echo -e "\n------------------------------------------------------------------------\n";
+    echo -e "\n--------------------------------------\n";
     echo -e "${YELLOW}Please enter the <secret_key> argument${DEFAULT_COLOR}";
-    echo -e "\n------------------------------------------------------------------------\n";
+    echo -e "\n--------------------------------------\n";
     exit 1;
 else
     secret_key=$1
@@ -273,13 +273,11 @@ DB_POST=5432
 DEFAULT_ADMIN_NAME=adm1
 DEFAULT_ADMIN_EMAIL=adm1@adm1.com
 DEFAULT_ADMIN_PASSWORD=adm1
-""" > "env/.${project_name}.env"
-
-sed -i "s/{project_name}/${project_name}/g" "env/.db.env"
-
-sed -i "s/{project_name}/${project_name}/g" "env/.${project_name}.env"
-
-sed -i "s/{secret_key}/${secret_key}/g" "env/.${project_name}.env"
+""" > "env/.{project_name}.env"
 
 rm -rf out.txt
 ''' > setup.sh
+
+sed -i "s/{project_name}/${project_name}/g" setup.sh
+
+sed -i "s/{secret_key}/${secret_key}/g" setup.sh
