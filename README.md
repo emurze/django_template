@@ -35,6 +35,8 @@ mv django_template/ <project_name>
 cd <project_name>
 ```
 
+Setup project
+
 ```
 bash setup.sh <project_name> "<secret_key>" <docker_username> <github_username>
 ```
