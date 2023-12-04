@@ -177,7 +177,7 @@ sed -i "s/Django Template/Project ${project_name}/g" README.md
 
 sed -i "s/django_template/${project_name}/g" README.md
 
-sed -i '/#####/,/#####/d' README.md
+sed -i '/<!-- ##### -->/,/<!-- ##### -->/d' README.md
 
 
 # Remove traces
