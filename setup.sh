@@ -20,9 +20,9 @@ rm -rf .git
 # Check arguments
 
 if [[ -z $1 ]]; then
-    echo -e "\n------------------------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the arguments <project_name> <secret_key> <docker_username>${DEFAULT_COLOR}";
-    echo -e "\n------------------------------------------------------------------------\n";
+    echo -e "\n------------------------------------------------------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the arguments <project_name> <secret_key> <docker_username> <github_username>${DEFAULT_COLOR}";
+    echo -e "\n------------------------------------------------------------------------------------------\n";
     exit 1;
 else
     project_name=$1
@@ -36,9 +36,9 @@ if [[ $1 == "<project_name>" ]]; then
 fi
 
 if [[ -z $2 ]]; then
-    echo -e "\n---------------------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the arguments <secret_key> <docker_username>${DEFAULT_COLOR}";
-    echo -e "\n---------------------------------------------------------\n";
+    echo -e "\n---------------------------------------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the arguments <secret_key> <docker_username> <github_username>${DEFAULT_COLOR}";
+    echo -e "\n---------------------------------------------------------------------------\n";
     exit 1;
 else
     secret_key=$2
@@ -52,9 +52,9 @@ if [[ $2 == "<secret_key>" ]]; then
 fi
 
 if [[ -z $3 ]]; then
-    echo -e "\n-------------------------------------------\n";
-    echo -e "${YELLOW}Please enter the <docker_username> argument${DEFAULT_COLOR}";
-    echo -e "\n-------------------------------------------\n";
+    echo -e "\n---------------------------------------------------------------\n";
+    echo -e "${YELLOW}Please enter the arguments <docker_username> <github_username>${DEFAULT_COLOR}";
+    echo -e "\n---------------------------------------------------------------\n";
     exit 1;
 else
     docker_username=$3
