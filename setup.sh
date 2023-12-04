@@ -119,13 +119,6 @@ sed -i "s/django_template/${project_name}/g" README.md
 sed -i '/<!-- ##### -->/,/<!-- ##### -->/d' README.md
 
 
-# Remove traces
-
-rm -rf out.txt
-
-rm -rf setup.sh
-
-
 # Create git hook
 
 git init
@@ -153,6 +146,14 @@ poetry add django~=4.2.6 \
            coverage~=7.3.2 \
            selenium~=4.15.2 \
            flake8~=6.1.0
+
+
+# Remove traces
+
+rm -rf setup.sh
+
+
+# Create setup.sh
 
 
 echo '''#!/bin/sh
