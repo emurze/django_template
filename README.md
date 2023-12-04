@@ -21,6 +21,8 @@
 
 ## How to install project?
 
+Download project
+
 ```
 git clone git@github.com:emurze/django_template.git
 ```
