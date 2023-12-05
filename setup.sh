@@ -129,6 +129,7 @@ chmod +x .git/hooks/pre-commit
 
 echo '''
 #!/bin/sh
+make restart
 make test
 ''' > .git/hooks/pre-commit
 
